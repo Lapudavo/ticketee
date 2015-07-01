@@ -7,7 +7,8 @@ class UsersController < ApplicationController
       @user = User.new(user_params)
 
       if @user.save
-          flash[:notice] = "You have signed up successfully."
+          flash[:notice] = "You have signed up successfully. #{@user.name},
+          #{@user}"
           redirect_to projects_path
       else
           render :new
@@ -15,6 +16,10 @@ class UsersController < ApplicationController
   end
 
   def show
+      @us = User.all
+  end
+
+  def edit
   end
 
   private
