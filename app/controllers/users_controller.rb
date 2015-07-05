@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
       if @user.save
           flash[:notice] = "You have signed up successfully. #{@user.name},
-          #{@user}"
+          #{@user.email}, #{@user.password}"
           redirect_to projects_path
       else
           render :new
@@ -16,7 +16,6 @@ class UsersController < ApplicationController
   end
 
   def show
-      @us = User.all
   end
 
   def edit
