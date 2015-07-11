@@ -5,6 +5,14 @@ class ApplicationController < ActionController::Base
 
 
     private
+    def authorize_admin!
+        require_signin!
+
+        unless current_user.admin?
+            flash[:alert] = "You must be an admin to do that."
+            redirect_to root_path
+        end
+    end
     
     def require_signin!
         if current_user.nil?
