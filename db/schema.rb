@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150725015635) do
+ActiveRecord::Schema.define(version: 20150728002958) do
 
   create_table "assets", force: :cascade do |t|
     t.string   "asset"
     t.integer  "ticket_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "content_type"
   end
 
   create_table "permissions", force: :cascade do |t|
